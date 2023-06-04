@@ -19,21 +19,17 @@ Detault Parties = 2 ( TLP , PTI
 void registerparty()
 {
     string party;
-    registeredparties = registeredparties + 1;
     cout << "===================================================\n";
     cout << "              Enter Details of New Party           \n";
     cout << "===================================================\n";
     cout << "Enter Party Name = ";
     cin>>party;
   for(int i=0; i<=registeredparties; i++){
-    if(party==parties[i]){
-registeredparties = registeredparties - 1;
-cout<<"Party Already Exists";
-    }else{
-        party= parties[registeredparties];
+    if(party != parties[i]){
+  parties[registeredparties+1] = party ;
     }
   }
-    cout << registeredparties;
+  registeredparties = registeredparties + 1;
 };
 void showparties()
 {
@@ -88,11 +84,11 @@ void showResult()
             maxfreq = party[i];
          }
       }
-   cout<< maxfreq<<" has Won the General Election 2023 as it get "<<max_count<<" votes out of "<<totalVotes;
+   cout<<" "<<endl<<maxfreq<<" has Won the General Election 2023 as it get "<<max_count<<" votes out of "<<totalVotes;
     for (int i = 0; i<=totalVotes-1; i++)
-    {
-        cout<<"\nData of "<<i+1<<" Person \n"<<endl;
+    {  
         cout << "=============================\n";
+        cout<<"\nData of "<<i+1<<" Person \n";
 	           cout<<"Candidate Vote To"<<party[i]<<" party. "<<endl;
 	    		cout<<"Candidate Name "<<voterName[i]<<endl;
 	    		cout<<"Candidate CNIC No "<<voterId[i]<<endl;
